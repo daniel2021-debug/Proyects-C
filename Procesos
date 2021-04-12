@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int var = 22;
+int main(void){
+
+  pid_t pid;
+  printf("Proc. PID %d start\n",getpid());
+  pid = fork();
+  
+  if(pid == 0){
+     var = 44;
+    }
+  else if(pid > 0){
+    var = 33;
+    printf("Proc. PID %d, pid % running\n",getpid());
+  }
+  
+  while(1){
+    printf("Proc. PID %d, var %d running\n",getpid()),var);
+  }
+  return 0;
+}
